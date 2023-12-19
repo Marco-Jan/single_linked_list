@@ -67,6 +67,12 @@ class SinglyLinkedList {
         if (!this.head) {
             return undefined;
         }
+        let oldHead = this.head;
+        this.head = this.head.next;
+        this.length--;
+
+        return oldHead;
+
 
     }
 }
