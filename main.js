@@ -33,6 +33,12 @@ class SinglyLinkedList {
         }
         let currentItem = this.head;
         let preItem = null;
+        if (!this.head.next) {
+            this.head = null;
+            this.tail = null;
+            this.length--;
+            return currentItem;
+        }
         while (currentItem.next) {
             preItem = currentItem;
             currentItem = currentItem.next;
@@ -46,12 +52,17 @@ class SinglyLinkedList {
         this.length--;
         return currentItem;
     }
+    shift() {
+        if (!this.head) {
+            return undefined;
+        }
+    }
 }
 const myList = new SinglyLinkedList();
 myList.append(6);
-myList.append(36);
-myList.append(46);
-myList.append(56);
+// myList.append(36)
+// myList.append(46)
+// myList.append(56)
 myList.pop();
 console.log(myList.pop());
 //console.log(myList.tail);
