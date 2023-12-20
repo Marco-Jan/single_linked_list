@@ -131,7 +131,7 @@ class SinglyLinkedList {
         let temp = previousNode?.next;
 
         previousNode!.next = newNode;
-        newNode.next = temp ?? null;
+        newNode.next = temp || null;
 
         this.length++;
         return true;
@@ -141,21 +141,39 @@ class SinglyLinkedList {
 
     remove(index: number) {
         if (index < 0 || index >= this.length) return -1;
-        if (index === 0) return this.shift();
-        if (index === this.length - 1) return this.pop();
+        if (index === 0) return this.shift()?.value;
+        if (index === this.length - 1) return this.pop()?.value;
 
-        let previousNode: ListNode | null | -1 = this.get(index - 1); 
-        if (previousNode === null || previousNode === -1) return -1; 
-
-        let removedNode = previousNode.next; 
-
-        previousNode.next = removedNode?.next ?? null; 
+        const previousNode = this.get(index - 1) as ListNode;
+        const removedNode = previousNode.next;
+        previousNode.next = removedNode?.next || null;
 
         this.length--;
-        return removedNode;
+        return removedNode?.value;
     }
+
+    reverse() {
+        let currentNode: ListNode | null | -1 = this.head;
+        if (!currentNode) return null;
+
+        this.head = this.tail;
+        this.tail = currentNode;
+
+        let prevNode: ListNode | null = null;
+        let nextNode: ListNode | null = null;
+
+        for (let i = 0; i < this.length; i++) {
+            nextNode = currentNode.next as ListNode;
+            currentNode.next = prevNode;
+            prevNode = currentNode;
+            currentNode = nextNode;
+        }
+
+        return this;
+    }
+
 }
-    const myList = new SinglyLinkedList();
+const myList = new SinglyLinkedList();
 
 //myList.append(6)
 // myList.append(36)
