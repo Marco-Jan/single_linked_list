@@ -7,7 +7,7 @@ class ListNode {
     }
 }
 
-class SinglyLinkedList {
+module.exports = class SinglyLinkedList {
     head: ListNode | null = null;
     tail: ListNode | null = null;
     length: number = 0;
@@ -173,17 +173,17 @@ class SinglyLinkedList {
     }
 
 }
-const myList = new SinglyLinkedList();
+// const myList = new SinglyLinkedList();
 
-//myList.append(6)
+// myList.append(6)
 // myList.append(36)
 // myList.append(46)
 // myList.append(56)
-//myList.pop()
-//myList.shift()
-//myList.get(5)
+// myList.pop()
+// myList.shift()
+// myList.get(5)
 
-console.log(myList.get(5));
+// console.log(myList.get(5));
 
 //console.log(myList.tail);
 // const head = new ListNode(5);

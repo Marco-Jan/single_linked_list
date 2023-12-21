@@ -6,7 +6,7 @@ class ListNode {
         this.next = null;
     }
 }
-class SinglyLinkedList {
+module.exports = class SinglyLinkedList {
     constructor() {
         this.head = null;
         this.tail = null;
@@ -143,16 +143,16 @@ class SinglyLinkedList {
         }
         return this;
     }
-}
-const myList = new SinglyLinkedList();
-//myList.append(6)
+};
+// const myList = new SinglyLinkedList();
+// myList.append(6)
 // myList.append(36)
 // myList.append(46)
 // myList.append(56)
-//myList.pop()
-//myList.shift()
-//myList.get(5)
-console.log(myList.get(5));
+// myList.pop()
+// myList.shift()
+// myList.get(5)
+// console.log(myList.get(5));
 //console.log(myList.tail);
 // const head = new ListNode(5);
 // head.next = new ListNode(10);
